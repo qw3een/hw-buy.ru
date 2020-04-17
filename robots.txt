@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /admin/
+
+Host: gcms.overcs.ru
+Sitemap: http://gcms.overcs.ru/sitemap.xml

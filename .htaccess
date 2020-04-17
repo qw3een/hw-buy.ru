@@ -1,0 +1,19 @@
+AddDefaultCharset utf-8
+
+RewriteBase /
+Options All
+Options -Indexes
+Options +FollowSymLinks
+
+RewriteEngine on
+DirectoryIndex index.php 
+RewriteCond %{HTTP_HOST} ^www.gcms.overcs\.ru$ [NC]
+RewriteRule ^(.*)$ http://gcms.overcs.ru/$1 [R=301,L]
+RewriteCond %{REQUEST_FILENAME} !-f 
+RewriteCond %{REQUEST_FILENAME} !-d 
+RewriteCond %{REQUEST_FILENAME} !-l
+
+#***Стандарт:
+RewriteRule ^(.*)$ index.php/$1 [L,QSA]
+#***Закодировать строку выше, раскодировать нижнюю, если при переходе на любую страницу, кроме главной, появляется ошибка "No input file specified":
+#RewriteRule ^(.*)$ /index.php?/$1 [L,QSA]
